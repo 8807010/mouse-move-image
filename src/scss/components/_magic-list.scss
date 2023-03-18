@@ -3,6 +3,12 @@
   font-size: calc(var(--index) * 2.75);
   padding: calc(var(--index) * 2.75);
 
+  &__header {
+    width: min-content;
+    transition: transform var(--transition);
+    will-change: transform;
+  }
+
   &__item {
     cursor: none;
     color: var(--black);
@@ -33,11 +39,13 @@
     &:hover::before {
       transform: translate3d(calc(var(--index) * -5), 0, 0);
     }
-  }
 
-  &__header {
-    width: min-content;
-    transition: transform var(--transition);
-    will-change: transform;
+    &:hover .cursor {
+      height: var(--height);
+    }
+
+    &:hover .cursor__image {
+      transform: var(--cursor-transform) scale(1);
+    }
   }
 }
